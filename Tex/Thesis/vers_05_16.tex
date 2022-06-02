@@ -1,0 +1,410 @@
+\documentclass[10pt,a4paper,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\newtheorem{theorem}{Satz}[chapter]
+\newtheorem{corollary}{Korollar}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{hlemma}{Hilfslemma}[chapter]
+%\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{beispiel}{Beispiel}[chapter]
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\OL}{\mathcal{O}}
+
+\author{Ludwig Paul Lind}
+\title{Ecken ABC-Flächen}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Einleitung}
+kurze Vorstellung ABC-Flächen. CAD-Systeme usw. 
+Verweis Uli
+Meine Untersuchung Ecken blablabla
+Einteilung der Kapitel
+
+\chapter{Mathematische Grundlagen}
+Grundsätzlich Thema DGL
+Beispiel für DGL -u'' = f
+Grundlagen finite Elemente.
+Voraussetzungen
+Sobolevspaces/schwache Ableitungen usw.
+
+\chapter{ABC-Flächen}
+Motivation
+Arbeit von Uli im wesentlichen zusammentragen.
+G0 Bedingung herausstellen. 
+Mit mehr Bildern als im Paper.
+Anwendung nicht so wichtig.
+
+\chapter{Fragestellung}
+In ihrer Arbeit beschreiben Florian Martin und Ulrich Reif Bedingungen, um Stetigkeit, Normalenstetigkeit und Krümmungsstetigkeit in den Ecken garantieren zu können.
+Außerhalb der Ecken ist die Glattheit trivial.
+
+In dieser Arbeit soll im wesentlichen darauf eingegangen werden unter welchen Bedingungen auf den ABC-Flächen welcher Differentialgleichungstyp lösbar ist.
+Für Differentialgleichungen erster Ordnung ist die G1-Bedingung genügend, weil die partiellen Ableitungen in diesem Fall beschränkt sind.
+Es stellt sich nun die Frage, ob bereits weniger scharfe Bedingungen Lösbarkeit auf der ABC-Fläche ermöglichen oder gar implizieren.
+
+Inspiration woher, für diese Annahme?
+
+Betrachte zunächst als Motivation ein relativ simples Beispiel, das die G0-Bedingung erfüllt.
+\begin{beispiel} \label{bsp:G0pos}
+Es wird eine Ecke einer ABC-Fläche betrachtet, die über einem rechtwinkligen Definitionsgebiet definiert ist.
+Es sei $\Gamma = \left[0,\alpha\right]^2$ das Definitionsgebiet, in dem die Umgebung der im Ursprung liegenden Ecke untersucht werden soll.
+Die beiden Kanten des Definitionsgebiets $\Gamma$ werden entsprechend Abbildung \ref{fig:bsp:defgbt} mit $\Gamma_0$ und $\Gamma_1$ bezeichnet.
+
+Bild \label{fig:bsp:defgbt}
+
+Die Gewichte seien von der Gestalt
+\begin{align*}
+w_0\left(x,y\right) &= y \cdot p\left(x,y\right) \\
+w_1\left(x,y\right) &= x \cdot q\left(x,y\right) \\
+w_j\left(x,y\right) &= xy \cdot s_j\left(x,y\right) \quad \forall j \neq 0,1 \\
+w\left(x,y\right) &= xy \cdot t\left(x,y\right).
+\end{align*}
+Dabei seien $p, q, s_j, t$ Funktionen, die hinreichend glatt sowie beschränkt sind und im Ursprung positiven Wert haben.
+Hier genauer werden, mit Landausymbolen und so
+Außerdem darauf eingehen, dass damit auch sinx = x * sinx/x gemeint sein kann
+Weiterhin muss die Bedingung der Kontaktordnung überprüft werden
+
+Zur Vereinfachung der Notation wird der Ausdruck
+\begin{align*}
+\bar{w}\left(x,y\right) = w\left(x,y\right) + \sum_{j \neq 0,1} w_j\left(x,y\right) = xy \cdot r\left(x,y\right)
+\end{align*}
+verwendet, wobei die Funktion $r = \sum_{j \neq 0,1} s_j + t$ die Eigenschaften von $s_j$ und $t$ erbt.
+
+Damit ist die ABC-Fläche
+\begin{align*}
+\bold{a} = \frac{\bold{b} w + \sum_{j \neq 0,1} \bold{\bar{r}}_j w_j + \bold{\bar{r}}_0 w_0 + \bold{\bar{r}}_1 w_1}{\bar{w} + w_0 +w_1}
+\end{align*}
+für noch festzulegende Bases und Ribbons definiert.
+Es lässt sich nun zeigen, dass, sofern diese die G0 Bedingung erfüllen, das heißt, dass die Ribbons in der Ecke konsistent im Sinne $\bar{r}_0\left(0,0\right) = \bar{r}_1\left(0,0\right)$ sind, die partiellen Ableitungen von $\bold{a}$ beschränkt sind.
+
+Betrachte die offensichtlich beschränkte Funktion 
+\begin{align*}
+\varphi\left(x,y\right) = \frac{w\left(x,y\right)}{\bar{w}\left(x,y\right) + w_0\left(x,y\right)+ w_1 \left(x,y\right)} = \frac{xy\cdot t\left(x,y\right)}{xy\cdot r\left(x,y\right) + x\cdot q\left(x,y\right)+ y \cdot p \left(x,y\right)}
+\end{align*}
+Als partielle Ableitung ergibt sich
+\begin{align*}
+\varphi_{x} = \frac{x^2y^2 \left(t_x r - t r_x\right)+ x^2 y \left(t_x q -t q_x\right) + x y^2 \left( t_x p - t p_x\right)+ y^2 t p}{\left(xy r + x q+ y p \right)^2}.
+\end{align*}
+Zur besseren Lesbarkeit sind die Variablen nicht mit notiert und die partielle Ableitung $\partial_x$ wird durch den Index kenntlich gemacht.
+Die Ableitung $\varphi_{x}$ ist im Ursprung nicht stetig fortsetzbar.
+So ist 
+\begin{align*}
+\lim_{x \to 0} \varphi \left(x, 0\right) = \lim_{x \to 0} 0 = 0, 
+\end{align*}
+während
+\begin{align*}
+\lim_{y \to 0} \varphi \left(0, y\right) = \lim_{y \to 0} \frac{t}{p}= \frac{t}{p} \neq 0,
+\end{align*}
+nicht verschwindet.
+Die Funktion $\varphi_{x}$ ist mit beliebiger Fortsetzung im Ursprung aber fast überall beschränkt und es gilt somit
+\begin{align*}
+\varphi_{x} \in L^{\infty}.
+\end{align*}
+Aus der Symmetrie folgt 
+\begin{align*}
+\varphi_{y} \in L^{\infty}.
+\end{align*}
+
+Für die Funktionen
+\begin{align*}
+\varphi_j\left(x,y\right) = \frac{w_j\left(x,y\right)}{\bar{w}\left(x,y\right) + w_0\left(x,y\right)+ w_1 \left(x,y\right)} 
+\end{align*}
+folgt analog in den Fällen $j \neq 0,1$, dass
+\begin{align*}
+\varphi_{j x}, \varphi_{j y} \in L^{\infty}
+\end{align*}
+gilt.
+Hieraus folgt wegen
+\begin{align*}
+\varphi_0 + \varphi_1 = \frac{w_0+w_1}{\bar{w}+ w_0 + w_1} = 1 - \frac{w + \sum_{j\neq 0,1} w_j}{\bar{w}+ w_0 + w_1}
+\end{align*}
+sofort, dass
+\begin{align*}
+\varphi_{0 x} + \varphi_{1 x}, \varphi_{0 y} + \varphi_{1 y} \in L^{\infty}
+\end{align*}
+gilt.
+
+Nun wird die gesamten ABC-Fläche $\bold{b} \varphi + \sum_{j\neq 0,1} \bold{\bar{r}}_j \varphi_j + \bold{\bar{r}}_0 \varphi_0 + \bold{\bar{r}}_1 \varphi_1$ untersucht und ihre partiellen Ableitungen betrachtet.
+\begin{align*}
+\bold{a}_x = \bold{b}_x \varphi + \bold{b} \varphi_x + \sum_{j\neq 0,1} \bold{\bar{r}}_{jx} \varphi_j + \sum_{j\neq 0,1} \bold{\bar{r}}_j \varphi_{jx} + \bold{\bar{r}}_{0x} \varphi_0 \bold{\bar{r}}_{0} \varphi_{0x}+ \bold{\bar{r}}_{1x} \varphi_1 + \bold{\bar{r}}_{1} \varphi_{1x} 
+\end{align*}
+Mit der Glattheit der Base und der Ribbons und den bisher gezeigten Eigenschaften liegt dieser bis auf zwei Summanden in $L^{\infty}$.
+Der zu untersuchende Rest lautet
+\begin{align*}
+g \coloneqq \bold{\bar{r}}_{0} \varphi_{0x} + \bold{\bar{r}}_{1} \varphi_{1x}
+\end{align*}
+Aufgrund der Konsistenz der Ribbons gilt $\bold{r}_0 \left(\tau\right) = \bold{r}_1 \left(0,0\right) + \mathcal{O} \left( \left| \tau \right| \right)$.
+Damit ist
+\begin{align*}
+g = \bold{\bar{r}}_{1} \left( \varphi_{0x} + \varphi_{1x} \right) + \varphi_{0x} \cdot \mathcal{O} \left( \left| \tau \right| \right).
+\end{align*}
+Mit  
+\begin{align*}
+\varphi_{0x} = \frac{x y^2 \left( p_xr- p r_x\right) + xy \left(p_x q -p q_yx\right) - y^2 pr - ypq}{\left(xy r + x q+ y p \right)^2}
+\end{align*}
+ist direkt ersichtlich, dass jeder Summand der Ausdrücke $x \cdot \varphi_{0x}$ und $y \cdot \varphi_{0x}$ in der Umgebung des Ursprungs mit beliebiger Fortsetzung im Ursprung fast überall beschränkt ist. 
+Somit ist gezeigt, dass $g \in L^{\infty}$ gilt, woraus direkt
+\begin{align*}
+\bold{a} \in W^{1,\infty}
+\end{align*}
+folgt.
+\end{beispiel}
+
+Beispiel \ref{bsp:G0pos} zeigt, dass bei geschickter Wahl der Gewichte die Lösbarkeit von Differentialgleichungen zweiter Ordnung bereits unter den G0-Bedingungen erreicht werden kann.
+Dass diese Bedingungen alleine aber nicht genügen zeigt folgendes Beispiel.
+
+\begin{beispiel}
+In analoger Weise zu obigem Beispiel wird wieder eine im Ursprung befindliche rechtwinklige Ecke einer ABC-Fläche betrachtet.
+Diesmal seien die Gewichte zu
+\begin{align*}
+w_0 &= y^3 \\
+w_1 &= x \\
+w &= xy^3
+\end{align*}
+gewählt.
+Die Wahl der Base und der Ribbons fällt auf 
+\begin{align*}
+\bold{b} &= 0 \\
+\bold{r}_0 &= y \\
+\bold{r}_1 &= 0 
+\end{align*}
+blablabla
+\end{beispiel}
+
+Die Integrierbarkeit ist also nicht trivialerweise durch die Glattheitsbedingung G0 gegeben.
+Von Interesse für Anwender der ABC-Flächen ist jetzt welche Anforderungen insbesondere bei der Wahl der Gewichte erfüllt werden müssen, um Integrierbarkeit zu erhalten.
+
+\chapter{Allgemeine Betrachtung}
+
+w = w0 w1 q
+
+Ableitungen von a sind beschränkt außer der Dh*(r1-r0) Teil
+\begin{align*}
+\bold{a} &= \frac{w\bold{b} + w_0 \bold{r_0}+ w_1 \bold{r_1}}{w + w_0 + w_1} \\
+&= \frac{w}{w+w_0+w_1} \bold{b} + \frac{w_0 + w_1}{w+w_0+w_1} \bold{r_0} + \frac{w_1}{w+w_0+w_1} \left(r_1-r_0\right)
+\end{align*}
+
+
+Der Term kann aber auch explodieren
+
+Auch Normalenstetigkeit aus Paper geht kaputt
+
+Konkretes Beispiel mit den qs aus dem Paper
+
+Für praktische Anwendungen sind am ehesten die Gewichte zu beeinflussen.
+Deshalb sollte es das Ziel sein, für diese eine Vorschrift zu finden, die $L^p$-Integrierbarkeit garantiert.
+
+\chapter{Höhenfunktionen in rechtwinkliger Geometrie}
+
+In diesem Kapitel soll die Problemstellung, die in den beiden Beispielen des Kapitels \ref{chap:fragestellung} vorgestellt wurde, allgemeiner gefasst werden.
+
+Es wird eine ABC-Fläche 
+\begin{align*}
+\bold{a}: \Gamma \mapsto \R^3
+\end{align*}
+betrachtet, wobei wieder blablabla
+(jeweils nur z-Komponente (Höhenfunktion))
+
+Bild
+
+Es wird zunächst der polynomielle Fall betrachtet
+
+Gewichte
+\begin{align*}
+w_0 &= y^m \\
+w_1 &= x^n \\
+w &= x^n y^m
+\end{align*}
+Betrachte den Fall
+\begin{align*}
+r_1 - r_0 = x^k
+\end{align*}
+Damit folgt für den kritischen Term der ABC-Fläche
+\begin{align*}
+g = \frac{x^k x^n}{x^n y^m + x^n + y^m}
+\end{align*}
+Betrachte partielle Ableitungen
+\begin{align*}
+g_x = \frac{\left(k+n\right) x^{n+k-1} \left( x^ny^m+x^n+y^m\right) - x^{n+k} n x^{n-1} \left(y^m + 1\right)}{\left(x^ny^m+x^n+y^m\right)^2}
+\end{align*}
+Für $k \geq 1$ ist $a_x \in L^{\infty}$ klar.
+Dagegen liegt 
+\begin{align*}
+a_y &= \frac{-x^{n+k} m y^{m-1} \left(x^n + 1\right)}{\left(x^ny^m+x^n+y^m\right)^2} \\
+&=  \frac{-my^{m-1}x^{2n+k}}{\left(x^ny^m+x^n+y^m\right)^2} - \frac{my^{m-1}x^{n+k}}{\left(x^ny^m+x^n+y^m\right)^2}
+\end{align*}
+für beliebiges $p$ nicht in $L^p$, wenn $n$ groß genug gewählt wird.
+Dies lässt sich wie folgt zeigen: 
+\begin{align*}
+&\int_{x=0}^{1} \int_{y=0}^{1} \left( \frac{y^{m-1}x^{n+k}}{\left(x^ny^m+x^n+y^m\right)^2} \right)^p \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C \int_{x=0}^{1} \int_{y=0}^{1}  \frac{y^{p\left(m-1\right)}x^{p\left(n+k\right)}}{\left(x^{2n}+y^{2m}\right)^p}  \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C \int_{x=0}^{1} \int_{y=0}^{x^{\frac{n}{m}}}  \frac{y^{p\left(m-1\right)}x^{p\left(n+k\right)}}{\left(x^{2n}+y^{2m}\right)^p}  \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C' \int_{x=0}^{1} \int_{y=0}^{x^{\frac{n}{m}}}  \frac{y^{\left(m-1\right)p}x^{p\left(n+k\right)}}{x^{2np}}  \, \mathrm{d}x \, \mathrm{d}y \\
+= \, &C' \int_{x=0}^{1} \frac{x^{kp}}{x^{np}} \int_{y=0}^{x^{\frac{n}{m}}} y^{mp-p}  \, \mathrm{d}x \, \mathrm{d}y \\
+= \, &C'' \int_{x=0}^{1} \frac{x^{kp}}{x^{np}} \left[y^{mp-p+1}\right]_{0}^{x^{\frac{n}{m}}} \, \mathrm{d}x\\
+= \, &C'' \int_{x=0}^{1} \frac{1}{x^{\left(n-k\right)p}} x^{\frac{n}{m}\left(mp-p+1\right)} \, \mathrm{d}x\\
+\end{align*}
+Das Integral divergiert für den Fall
+\begin{align*}
+p \left(n - k\right) &\geq \frac{n}{m}\left(mp-p+1\right) + 1 \\
+\frac{n}{m} &\geq \frac{\left(1+pk\right)}{p-1}
+\end{align*}
+Bei der Untersuchung auf Quadratintegrabilität ($p=2$) können die Gibbons bis zu beliebiger Ordnung $k$ übereinstimmen und dennoch liegt $a_y$ für hinreichend großes $n$ nicht in $L^2$.
+
+Fall $p = \infty$ gesondert betrachten. Da wird das größer benötigt.
+Tippen morgen früh
+
+Die oben gefundene Schranke ist scharf, wie folgende Rechnung zeigt
+\begin{align*}
+&\int_{x=0}^{1} \int_{y=x^{\frac{n}{m}}}^{1} \left( \frac{y^{m-1}x^{n+k}}{\left(x^n+y^m\right)^2} \right)^p \, \mathrm{d}x \, \mathrm{d}y \\
+\leq &\int_{x=0}^{1} \int_{y=x^{\frac{n}{m}}}^{1} \frac{y^{\left(m-1\right)p}y^{\frac{m}{n}\left(n+k\right)p}}{\left(x^{2n}+y^{2m}\right)^p}  \, \mathrm{d}x \, \mathrm{d}y 
+\end{align*}
+Substitution $z^n = y^m$ mit $\frac{\mathrm{d}z}{\mathrm{d}y} = \frac{m}{n} y^{\frac{m}{n} - 1}$.
+\begin{align*}
+&\int_{x=0}^{1} \int_{z=x}^{1} \frac{z^{\frac{n}{m}\left[\left(m-1\right)p+\frac{m}{n}\left(n+k\right)p - \left(\frac{m}{n}-1\right)\right]}}{\left(x^{2n}+z^{2n}\right)^p}  \, \mathrm{d}x \, \mathrm{d}y \\
+&= 0
+\end{align*}
+
+gar keine Aufteilung Integral auf ganz $[0,1]^2$ ausrechnen
+
+Analoges gilt für r1-r0 = $y^k$
+
+Allgemeinere Fassung mit weiteren Fkt q und p usw
+
+Resultat herausstellen
+
+An anderer Stelle nochmal auf die Darstellung x * q(x,y) eingehen und Beispiele zeigen, dass so beliebige Fkt mit O(tau) und glatt so darstellbar sind.
+
+\chapter{Verallgemeinerung auf beliebige Geometrien}
+Höhenfunktionsergebnisse verallgemeinern auf 3D-Funktionen
+
+Existenz des Diffeomorphismuses
+
+Erhalt der Eigenschaften als ABC-Fläche bei Verkettung mit Diffeomorphismus
+Folgerung der Verallgemeinerung
+
+
+wichtig bis Juni
+
+\chapter{Bedeutung der Resultate}
+WIP
+Bilder
+Und auch Bedeutung für Krümmung
+
+Insbesondere auf physikalische Bedeutung der lösbaren DGLs eingehen. Welche DGL Typen sind dann lösbar
+
+\chapter{Fazit}
+Ausblick Krümmung
+
+
+\chapter{Anhang}
+Rechnungen bezüglich Minimalbeispiel und Integrabilität bis $L^{2-\epsilon}$ zB
+
+\chapter{Betrachtung einer rechtwinkligen Ecke}
+Kann weg
+
+
+Abbildung graphisch darstellen. 
+
+Es wird die Abbildung $\bold{a}$: $\left[0,1\right]^2 \to \R^3$ betrachtet, deren Funktionsvorschrift 
+\begin{align*}
+a\left(u,v\right) = \frac{\bold{b} w + \bold{r}_1 w_1 + \bold{r}_2 w_2}{w+w_1+w_2}
+\end{align*}
+lautet.
+
+Betrachte Ecke einer ABC-Fläche mit Definitionsgebiet $\left[0,1\right]^2$.
+G0 Bedingung erfüllt
+
+Betrachte w1, w2, w.
+wj erfüllt Voraussetzungen von w außerhalb der Ecke. Deshalb nicht zu berücksichtigen.
+
+Wir wissen, dass für $\sigma = \gamma_1\left(u\right) = \left(u,0\right)$ der Zusammenhang
+\begin{align*}
+\frac{w\left(\sigma + \tau\right)}{w_1\left(\sigma + \tau\right)} \in \OL\left(|\tau|\right)
+\end{align*}
+gilt.
+Wegen des Spezialfalls $\tau = \left( 0, v\right)^{\top}$ muss somit
+\begin{align*}
+\frac{w\left(u,v\right)}{w_1\left(u,v\right)} \in \OL\left(v\right)
+\end{align*}
+gelten.
+Es folgt
+\begin{align*}
+q\left(u,v\right) \coloneqq \frac{w\left(u,v\right)}{v \cdot w_1\left(u,v\right)} \in \OL\left(1\right).
+\end{align*}
+Die Funktion ist somit beschränkt in einer Umgebung $U$ um den Ursprung. 
+Aus der geforderten Glattheit der Gewichte, folgt somit, dass die Funktion $q$ außer in der Ecke glatt ist auf $U$.
+Es lässt sich also schreiben:
+\begin{align*}
+w\left(u,v\right) = v w_1\left(u,v\right) q\left(u,v\right)
+\end{align*}
+mit $q \in C^\infty\left(U\right)$.
+
+Analog lässt sich der Zusammenhang
+\begin{align*}
+w\left(u,v\right) = u w_0\left(u,v\right) p\left(u,v\right)
+\end{align*}
+mit $p \in C^\infty\left(U\right)$ finden.
+
+Im folgenden soll nun die Funktion
+\begin{align*}
+h\left(u,v\right) = \frac{w}{w + w_0 + w_1}
+\end{align*}
+untersucht werden.
+\begin{align*}
+\partial_u h &= \frac{\partial_u w \left(w+w_0+w_1\right) - w \left( \partial_u w + \partial_u w_0 +\partial_u w_1\right)}{\left(w+w_0+w_1\right)^2} \\
+&= \frac{\partial_u w w_0+ \partial_u w w_1 - w \partial_u w_0 - w \partial_u w_1}{\left(w+w_0+w_1\right)^2}
+\end{align*}
+Mit den obigen Umschreibungen der Funktion $w$ und deren Ableitung ergibt sich
+\begin{align*}
+\partial_u w w_0 - w \partial_u w_0 &= \left(w_0 q + u \partial_u w_0 q +u w_0 \partial_u q \right) w_0 - u w_0 q \partial_u w_0 \\
+&= w_0^2 \left(q+u\partial_u q\right)
+\end{align*}
+sowie 
+\begin{align*}
+\partial_u w w_1 - w \partial_u w_1 &= \left(v \partial_u w_1 p + v w_1 \partial_u p\right) w_1 - v w_1 p \partial_u w_1 \\
+&= w_1^2 v \partial_u p
+\end{align*}
+
+Die Beschränkheit von $\partial_u h$ ist somit gezeigt, während die Beschränkheit von $\partial_v h$ analog folgt. 
+Damit ist klar, dass
+\begin{align*}
+h \in W^{1, \infty} \supset H^1
+\end{align*}
+gilt.
+
+Für die Funktion 
+\begin{align*}
+h' = 1 - h = \frac{w_0 + w_1}{w + w_0 +w_1}
+\end{align*}
+folgt auch direkt die Zugehörigkeit zum Sobolevraum $W^{1, \infty}$
+
+Die Funktion 
+\begin{align*}
+\varphi_0 = \frac{w_0}{w + w_0 + w_1}
+\end{align*}
+ist beschränkt und bis auf ihm Ursprung stetig.
+Mit Satz ??? folgt somit, dass die Funktionen $u \partial_u \varphi_0\left(u,v\right)$ und $v \partial_u \varphi_0\left(u,v\right)$ beschränkt in dem Sinne sind, dass sie in $L^{\infty}$ liegen.
+
+Zusammentragen, dass
+a in W1, inf liegt
+
+Am Ende Resultate zusammentragen und Frage aufwerfen, ob dies verallgemeinerbar ist
+
+
+
+\end{document}

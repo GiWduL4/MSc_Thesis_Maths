@@ -1,0 +1,59 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{float}
+\usepackage{subfig}
+
+\author{Ludwig Paul Lind}
+\begin{document}
+\chapter{Beispiel}
+Gewichte
+\begin{align*}
+w_0 &= y^2 \\
+w_1 &= x^n \\
+w &= x^n y^2
+\end{align*}
+Bases und Ribbons (jeweils nur z-Komponente (Höhenfunktion))
+\begin{align*}
+b &= 0 \\
+r_0 &= 0 \\
+r_1 &= x^k
+\end{align*}
+Damit folgt für die ABC-Fläche
+\begin{align*}
+a = \frac{x^k x^n}{x^n y^2 + x^n + y^2}
+\end{align*}
+Betrachte partielle Ableitungen
+\begin{align*}
+a_x = \frac{\left(k+n\right) x^{n+k-1} \left( x^ny^2+x^n+y^2\right) - x^{n+k} n x^{n-1} \left(y^2 + 1\right)}{\left(x^ny^2+x^n+y^2\right)^2}
+\end{align*}
+Für $k \geq 1$ ist $a_x \in L^{\infty}$ klar.
+Dagegen liegt 
+\begin{align*}
+a_y &= \frac{-x^{n+k} 2 y \left(x^n + 1\right)}{\left(x^ny^2+x^n+y^2\right)^2} \\
+&=  \frac{-2yx^{2n+k}}{\left(x^ny^2+x^n+y^2\right)^2} - \frac{2yx^{n+k}}{\left(x^ny^2+x^n+y^2\right)^2}
+\end{align*}
+für beliebiges $p$ nicht in $L^p$, wenn $n$ groß genug gewählt wird.
+Dies lässt sich wie folgt zeigen:
+\begin{align*}
+&\int_{x=0}^{1} \int_{y=0}^{1} \left( \frac{yx^{n+k}}{\left(x^ny^2+x^n+y^2\right)^2} \right)^p \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C \int_{x=0}^{1} \int_{y=0}^{1}  \frac{y^px^{p\left(n+k\right)}}{\left(x^{2n}+y^4\right)^p}  \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C \int_{x=0}^{1} \int_{y=0}^{x^{\frac{n}{2}}}  \frac{y^px^{p\left(n+k\right)}}{\left(x^{2n}+y^4\right)^p}  \, \mathrm{d}x \, \mathrm{d}y \\
+\geq \, &C' \int_{x=0}^{1} \int_{y=0}^{x^{\frac{n}{2}}}  \frac{y^px^{p\left(n+k\right)}}{x^{2np}}  \, \mathrm{d}x \, \mathrm{d}y \\
+= \, &C' \int_{x=0}^{1} \frac{x^{kp}}{x^{np}} \int_{y=0}^{x^{\frac{n}{2}}} y^p  \, \mathrm{d}x \, \mathrm{d}y \\
+= \, &C'' \int_{x=0}^{1} \frac{x^{kp}}{x^{np}} \left[y^{p+1}\right]_{0}^{x^{\frac{n}{2}}} \, \mathrm{d}x\\
+= \, &C'' \int_{x=0}^{1} \frac{1}{x^{\left(n-k\right)p}} x^{\frac{n}{2}\left(p+1\right)} \, \mathrm{d}x\\
+\end{align*}
+Das Integral divergiert für den Fall
+\begin{align*}
+p \left(n - k\right) &\geq \frac{n}{2}\left(p+1\right) + 1 \\
+n &\geq \frac{2 \left(1+pk\right)}{p-1}
+\end{align*}
+Bei der Untersuchung auf Quadratintegrabilität ($p=2$) können die Ribbons bis zu beliebiger Ordnung $k$ übereinstimmen und dennoch liegt $a_y$ für hinreichend großes $n \geq 4k+2$ nicht in $L^2$.
+\end{document}

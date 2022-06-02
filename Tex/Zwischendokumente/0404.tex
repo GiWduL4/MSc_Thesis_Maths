@@ -1,0 +1,146 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{float}
+\usepackage{subfig}
+
+\author{Ludwig Paul Lind}
+\begin{document}
+\chapter{Hilfsrechnungen}
+Betrachte
+\begin{align*}
+f&: \left[0,1\right]^2 \rightarrow \mathbb{R} \\
+f& \left(x, y\right) = \frac{x^a y^b}{\left(xy+x+y\right)^2}.
+\end{align*}
+Es gilt:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline 
+$a+b$ & $\geq 2$ & $1$ & $0$ \\ 
+\hline 
+$f \in$ & $L^{\infty}$ & $L^{2-\epsilon}$ & $L^{1-\epsilon}$ \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+Entsprechend ist für die Funktion
+\begin{align*}
+f&: \left[0,1\right]^2 \rightarrow \mathbb{R} \\
+f& \left(x, y\right) = \frac{x^a y^b}{\left(xy+x+y\right)^3}
+\end{align*}
+die Zuordnung
+\begin{table}[H]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline 
+$a+b$ & $\geq 3$ & $2$ & $1$ \\ 
+\hline 
+$f \in$ & $L^{\infty}$ & $L^{2-\epsilon}$ & $L^{1-\epsilon}$ \\ 
+\hline 
+\end{tabular}
+\end{table} 
+zu finden.
+
+Analog gilt für
+\begin{align*}
+f&: \left[0,1\right]^2 \rightarrow \mathbb{R} \\
+f& \left(x, y\right) = \frac{x^a y^b}{\left(x^2y^2+x^2+y^2\right)^2}
+\end{align*}
+die Einteilung:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline 
+$a+b$ & $\geq 4$ & $3$ & $2$ \\ 
+\hline 
+$f \in$ & $L^{\infty}$ & $L^{2-\epsilon}$ & $L^{1-\epsilon}$\\ 
+\hline 
+\end{tabular}
+\end{table} 
+
+Analog gilt für
+\begin{align*}
+f&: \left[0,1\right]^2 \rightarrow \mathbb{R} \\
+f& \left(x, y\right) = \frac{x^a y^b}{\left(x^2y^2+x^2+y^2\right)^3}
+\end{align*}
+die Einteilung:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline 
+$a+b$ & $\geq 6$ & $5$ & $4$ \\ 
+\hline 
+$f \in$ & $L^{\infty}$ & $L^{2-\epsilon}$ & $L^{1-\epsilon}$\\ 
+\hline 
+\end{tabular}
+\end{table} 
+
+\chapter{Minimalbeispiele}
+Hier Minimalbeispiel beschreiben mit $\Gamma_1$ auf x-Achse und $\Gamma_2$ auf y-Achse
+\section{Kontaktordnung 0}
+Wir wählen
+\begin{align*}
+w &= xy \\
+w_1 &= x \\
+w_2 &= y.
+\end{align*}
+\subsection{Ribbons und Normale konsistent}
+Einfachste Annahme ist, dass $b$ und $r_1 = r_2 = r$ konstant sind.
+Damit folgt für die ABC-Fläche
+\begin{align*}
+f \left(x, y\right) = \frac{bxy + rx + ry}{xy+x+y}.
+\end{align*}
+Diese Funktion ist offensichtlich beschränkt.
+
+Betrachte nun die partiellen Ableitungen.
+\begin{align*}
+\partial_x f \left(x, y\right) = \frac{\left(b-r\right) y^2}{\left( xy+x+y\right)^2} \in L^{\infty}
+\end{align*}
+Zweite Ableitungen
+\begin{align*}
+\partial_x \partial_x f \left(x, y\right) = \frac{-2 \left(b-r\right) y^2 (y+1)}{\left( xy+x+y\right)^3} \in L^{2-\epsilon} \\
+\partial_y \partial_x f \left(x, y\right) = \frac{2 \left(b-r\right) xy}{\left( xy+x+y\right)^3} \in L^{2-\epsilon}
+\end{align*}
+
+\subsection{Ribbons konsistent aber Normale nicht}
+Nehme an, $b$ ist konstant und $r_1 \circ \kappa_1 = y+c$ und $r_2 \circ \kappa_2 = x+c$.
+Für die ABC-Fläche gilt dann
+\begin{align*}
+f \left(x, y\right) &= \frac{bxy + \left(y+c\right)x + \left(x+c\right)y}{xy+x+y} \\
+&= \frac{\left(b+2\right)xy + cx + cy}{xy+x+y}.
+\end{align*}
+Die Betrachtung ist also analog zu vorigem Fall.
+
+\section{Kontaktordnung 1}
+Wir wählen
+\begin{align*}
+w &= x^2y^2 \\
+w_1 &= x^2 \\
+w_2 &= y^2.
+\end{align*}
+\subsection{Ribbons und Normale konsistent}
+Einfachste Annahme ist, dass $b$ und $r_1 = r_2 = r$ konstant sind.
+Damit folgt für die ABC-Fläche
+\begin{align*}
+f \left(x, y\right) = \frac{bx^2y^2 + rx^2 + ry^2}{x^2y^2+x^2+y^2}.
+\end{align*}
+Diese Funktion ist offensichtlich beschränkt.
+
+Betrachte nun die partiellen Ableitungen.
+\begin{align*}
+\partial_x f \left(x, y\right) = \frac{\left(2b-2r\right) xy^4}{\left(x^2y^2+x^2+y^2\right)^2} \in L^{\infty}
+\end{align*}
+
+Zweite Ableitungen
+\begin{align*}
+\partial_x \partial_x f \left(x, y\right) = \frac{\left(2b-2r\right) y^4 \left(y^2-3x^2y^2-3x^2\right)}{\left(x^2y^2+x^2+y^2\right)^3} \in L^{\infty} \\
+\partial_y \partial_x f \left(x, y\right) = \frac{\left(8b-8r\right) x^3y^3}{\left(x^2y^2+x^2+y^2\right)^3} \in L^{\infty}
+\end{align*}
+\end{document}

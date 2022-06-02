@@ -1,0 +1,12 @@
+\babel@toc {german}{}
+\contentsline {chapter}{\numberline {1}Einleitung}{2}{}%
+\contentsline {chapter}{\numberline {2}Mathematische Grundlagen}{3}{}%
+\contentsline {chapter}{\numberline {3}ABC-Flächen}{4}{}%
+\contentsline {chapter}{\numberline {4}Fragestellung}{5}{}%
+\contentsline {chapter}{\numberline {5}Allgemeine Betrachtung}{8}{}%
+\contentsline {chapter}{\numberline {6}Höhenfunktionen in rechtwinkliger Geometrie}{9}{}%
+\contentsline {chapter}{\numberline {7}Verallgemeinerung auf beliebige Definitionsgebiete}{12}{}%
+\contentsline {chapter}{\numberline {8}Bedeutung der Resultate}{13}{}%
+\contentsline {chapter}{\numberline {9}Fazit}{14}{}%
+\contentsline {chapter}{\numberline {10}Anhang}{15}{}%
+\contentsline {chapter}{\numberline {11}Betrachtung einer rechtwinkligen Ecke}{16}{}%
